@@ -1,0 +1,172 @@
+async function vender(){
+    cargarDatos = ()=>{
+
+    if (document.getElementById("ventaCantidad").value != "" && document.getElementById("ventaCantidad").value != 0)
+    {
+        axios({
+            method: 'GET',
+            url: 'http://localhost:3000/MERCADERIA/?id=' + document.getElementById("selectProducto").value
+        })
+        .then( res=>{for (item of res.data){localStorage.setItem("precioVenta", item.precioVenta);localStorage.setItem("precioCompra", item.precioCompra); localStorage.setItem("stock", item.stock);localStorage.setItem("producto", item.producto)}
+        })
+        axios({
+            method: 'GET',
+            url: 'http://localhost:3000/CLIENTE/?id=' + document.getElementById("selectCliente").value
+        })
+        .then( res=>{for (item of res.data){localStorage.setItem("cuenta", item.cuenta);localStorage.setItem("nombre", item.nombre);localStorage.setItem("numero", item.numero)}
+        })
+
+       
+//setTimeout(()=>{registrarVenta()},500);
+alert("")
+}
+else
+{
+    alert("no coloco la cantidad")
+}
+    }
+    actualizarDatos()
+}
+
+const actualizarDatos = async () => {
+    await cargarDatos ()
+    let date = new Date();
+    let fecha = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear() + ":" + date.getHours()+";"+ date.getMinutes();
+    
+        axios({
+            method: 'POST',
+            url: 'http://localhost:3000/REGISTRO',
+            data: {
+              fecha: fecha,
+              cliente: localStorage.getItem("nombre"),
+              producto: localStorage.getItem("producto"),
+              precioVenta: localStorage.getItem("precioVenta"),
+              cantidad: document.getElementById("ventaCantidad").value,
+              total: localStorage.getItem("precioVenta") * document.getElementById("ventaCantidad").value,
+              anulada: false
+    
+            }
+    
+      })
+      .then( alert("se registro correctamente"))
+      .catch( err=> console.log(err))
+    
+      try {   
+        let producto = await axios.patch("http://localhost:3000/MERCADERIA/"+document.getElementById("selectProducto").value,{stock: localStorage.getItem("stock") - document.getElementById("ventaCantidad").value})
+    } catch (error) {
+    console.log(error)
+    }
+      
+      try {   
+        let cliente = await axios.patch("http://localhost:3000/CLIENTE/"+document.getElementById("selectCliente").value,{cuenta: localStorage.getItem("cuenta") - (localStorage.getItem("precioVenta") * document.getElementById("ventaCantidad").value)})
+    } catch (error) {
+    console.log(error)
+    }
+    alert("La pelicula se agregó correctamente")
+    Storage.clear()
+}
+
+/*
+async function registrarVenta(){
+    let date = new Date();
+let fecha = String(date.getDate()).padStart(2, '0') + '/' + String(date.getMonth() + 1).padStart(2, '0') + '/' + date.getFullYear() + ":" + date.getHours()+";"+ date.getMinutes();
+
+    axios({
+        method: 'POST',
+        url: 'http://localhost:3000/REGISTRO',
+        data: {
+          fecha: fecha,
+          cliente: localStorage.getItem("nombre"),
+          producto: localStorage.getItem("producto"),
+          precioVenta: localStorage.getItem("precioVenta"),
+          cantidad: document.getElementById("ventaCantidad").value,
+          total: localStorage.getItem("precioVenta") * document.getElementById("ventaCantidad").value,
+          anulada: false
+
+        }
+
+  })
+  .then( alert("se registro correctamente"))
+  .catch( err=> console.log(err))
+
+  try {   
+    let producto = await axios.patch("http://localhost:3000/MERCADERIA/"+document.getElementById("selectProducto").value,{stock: localStorage.getItem("stock") - document.getElementById("ventaCantidad").value})
+} catch (error) {
+console.log(error)
+}
+  
+  try {   
+    let cliente = await axios.patch("http://localhost:3000/CLIENTE/"+document.getElementById("selectCliente").value,{cuenta: localStorage.getItem("cuenta") - (localStorage.getItem("precioVenta") * document.getElementById("ventaCantidad").value)})
+} catch (error) {
+console.log(error)
+}
+
+
+  axios(
+    {
+        method:"PUT",
+        url:"http://localhost:3000/MERCADERIA/" + document.getElementById("selectProducto").value,
+        data:
+        {
+        producto: localStorage.getItem("producto"),
+        precioVenta: localStorage.getItem("precioVenta"),
+        precioCompra: localStorage.getItem("precioCompra"),
+        stock: localStorage.getItem("stock") - document.getElementById("ventaCantidad").value
+        }
+    }
+    )
+    .then( alert("se registro el producto"))
+    .catch( err => console,log(err))
+
+    
+axios(
+        {
+            method:"PUT",
+            url:"http://localhost:3000/CLIENTE/" + document.getElementById("selectCliente").value,
+            data:
+            {
+            nombre: localStorage.getItem("nombre"),
+            numero: localStorage.getItem("numero"),
+            cuenta: localStorage.getItem("cuenta") - (localStorage.getItem("precioVenta") * document.getElementById("ventaCantidad").value)
+                }
+            }
+            )
+            .then( alert("se registro el cliente"))
+            .catch( err => console,log(err))
+
+}*/
+
+{
+    "MERCADERIA": [
+      {
+        "producto": "CocaCola",
+        "precioVenta": "200",
+        "precioCompra": "180",
+        "stock": 88,
+        "id": 1,
+        "[object Object]0": ""
+      }
+    ],
+    "REGISTRO": [
+      {
+        "fecha": "27/06/2022:16;53",
+        "cliente": "Pepe",
+        "producto": "Gomitas",
+        "precioVenta": "100",
+        "cantidad": "2",
+        "total": 200,
+        "idP": "1",
+        "idC": "1",
+        "anulada": true,
+        "id": 1
+      }
+    ],
+    "CLIENTE": [
+      {
+        "nombre": "Pepe",
+        "numero": "381295442",
+        "cuenta": -8800,
+        "id": 1
+      }
+    ]
+  }

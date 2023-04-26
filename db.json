@@ -1,0 +1,150 @@
+{
+  "MERCADERIA": [
+    {
+      "producto": "Gomitas",
+      "precioVenta": "100",
+      "precioCompra": "60",
+      "stock": 10,
+      "enUso": true,
+      "id": 1
+    },
+    {
+      "producto": "chocolate",
+      "precioVenta": "19",
+      "precioCompra": "10",
+      "stock": 0,
+      "enUso": true,
+      "id": 2
+    },
+    {
+      "producto": "torta",
+      "precioVenta": "120",
+      "precioCompra": "100",
+      "stock": 20,
+      "enUso": true,
+      "id": 3
+    },
+    {
+      "producto": "zapato",
+      "precioVenta": "21900",
+      "precioCompra": "18000",
+      "stock": 19,
+      "enUso": true,
+      "id": 4
+    }
+  ],
+  "REGISTRO": [
+    {
+      "fecha": "29/06/2022:0;57",
+      "cliente": "Geronimo",
+      "producto": "Gomitas",
+      "precioVenta": "100",
+      "cantidad": "1",
+      "total": 100,
+      "idP": "1",
+      "idC": "1",
+      "anulada": true,
+      "id": 1
+    },
+    {
+      "fecha": "29/06/2022:0;59",
+      "cliente": "Geronimo",
+      "producto": "Gomitas",
+      "precioVenta": "100",
+      "cantidad": "1",
+      "total": 100,
+      "idP": "1",
+      "idC": "1",
+      "anulada": true,
+      "id": 2
+    },
+    {
+      "fecha": "20/03/2023:17;16",
+      "cliente": "Geronimo",
+      "producto": "Gomitas",
+      "precioVenta": "100",
+      "cantidad": "1",
+      "total": 100,
+      "idP": "1",
+      "idC": "1",
+      "anulada": true,
+      "id": 3
+    },
+    {
+      "fecha": "20/03/2023:17;17",
+      "cliente": "Geronimo",
+      "producto": "Gomitas",
+      "precioVenta": "100",
+      "cantidad": "1",
+      "total": 100,
+      "idP": "1",
+      "idC": "1",
+      "anulada": true,
+      "id": 4
+    },
+    {
+      "fecha": "20/03/2023:17;17",
+      "cliente": "Geronimo",
+      "producto": "chocolate",
+      "precioVenta": "19",
+      "cantidad": "1",
+      "total": 19,
+      "idP": "2",
+      "idC": "1",
+      "anulada": true,
+      "id": 5
+    },
+    {
+      "fecha": "20/03/2023:17;32",
+      "cliente": "Geronimo",
+      "producto": "chocolate",
+      "precioVenta": "19",
+      "cantidad": "5",
+      "total": 95,
+      "idP": "2",
+      "idC": "1",
+      "anulada": false,
+      "id": 6
+    },
+    {
+      "fecha": "20/03/2023:17;34",
+      "cliente": "Geronimo",
+      "producto": "torta",
+      "precioVenta": "120",
+      "cantidad": "10",
+      "total": 1200,
+      "idP": "3",
+      "idC": "1",
+      "anulada": true,
+      "id": 7
+    },
+    {
+      "fecha": "22/03/2023:18;35",
+      "cliente": "ramira",
+      "producto": "zapato",
+      "precioVenta": "21900",
+      "cantidad": "1",
+      "total": 21900,
+      "idP": "4",
+      "idC": "2",
+      "anulada": true,
+      "id": 8
+    }
+  ],
+  "CLIENTE": [
+    {
+      "nombre": "Geronimo",
+      "numero": "123",
+      "cuenta": -95,
+      "id": 1,
+      "enUso": true
+    },
+    {
+      "nombre": "ramira",
+      "numero": "23",
+      "cuenta": 0,
+      "id": 2,
+      "enUso": true
+    }
+  ]
+}

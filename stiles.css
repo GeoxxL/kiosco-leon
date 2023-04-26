@@ -1,0 +1,64 @@
+
+*{
+    text-align: center;
+}
+h1
+{
+    text-align: center;
+    font-size: 50px;
+    color:tomato;
+}
+a{
+    color: aliceblue;
+}
+button
+{
+    background-color: rgb(91, 69, 69);
+    color: white;
+}
+
+nav {
+    padding: 1em;
+    font-family: Verdana, Geneva, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: grey;
+  }
+  
+  nav li button {
+    color: white;
+
+    text-decoration: none;
+    padding: .5em 1em;
+  }
+  
+  nav li button:hover {
+    background: tomato;
+    color: white;
+  }
+  @media screen and (min-width: 480px) {
+    nav ul {
+      display: flex;
+    }
+    
+    nav li{
+      flex-grow:1; 
+      text-align:center;
+    }
+  }
+
+  .salida
+  {
+    font-family: fantasy;
+    font-size: 150%;
+  }
+select{
+  background-color: rgb(91, 69, 69);
+  color: white;
+}

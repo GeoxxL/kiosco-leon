@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="stiles.css">
+</head>
+<body>
+    <header><h1 id="Titulo">Dulces Leon</h1></header>
+    <button id="btnPruebas">pruebas</button>
+    <nav>
+    <ul>
+    <li>
+        <input type="text" placeholder = "Producto" id="producto">
+        <input type="number" placeholder = "Precio de venta" id="precioVenta">
+        <input type="number" placeholder = "Precio de Compra" id="precioCompra">
+        <input type="number" placeholder = "Stock" id="stock">
+        <input type="file"/>
+        <button id="btnAgregarMercaderia">Agregar Mercaderia</button>
+        <button id="btnMostrarMercaderia">Mostrar Mercaderia</button>
+           <div id="salidaMercaderia"></div>
+    </li>
+    <li>
+        <input type="text" placeholder = "nombre" id="nombre">
+        <input type="number" placeholder = "numero" id="numero">
+        <input type="number"  placeholder = "cuenta"id="cuenta">
+        <button id="btnAgregarCliente">Agregar Cliente</button>
+        <button id="btnMostrarCliente">Mostrar Clientes</button>
+
+           <div id="salidaCliente"></div>
+    </li>
+    <li>
+        <a>producto</a>
+        <select id="selectProducto"></select>
+        <a>cliente</a>
+        <select id="selectCliente"></select>
+    
+        <input type="number" placeholder = "cantidad" id="ventaCantidad">
+        <button id="btnVender">Vender</button>
+        <button id="btnMostrarRegistro">Mostrar Registro</button>
+        <div id="salidaRegistro"></div>
+    </li>
+</ul>
+</nav>
+</body>
+</html>
